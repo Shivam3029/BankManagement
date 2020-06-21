@@ -29,33 +29,24 @@ def transaction():
     accNo=input("Enter your account number : ")
 
     f=open("accounts.txt",'r')
-    # new_file_content = ""
+   
     new_file_content = ""
     for line in f.readlines():
-        #print(type(line))
-        # stripped_line = line.strip()
-        # print(line)
+        
         lastchar=line.strip()[-1]
-        # print(lastchar)
+        
         s=line.split()
-        # print(s)
-        # bb=s[1]
-        # print(bb)
+        
 
         if(lastchar==accNo):
             ch=""
             while(ch!=3):
-                # stripped_line = line.strip()
-                # print(s[1])
-                # bb=s[1]
-
                 print("\t1. DEPOSIT")
                 print("\t2. WITHDRAW")
                 print("\t3. QUIT")
 
                 ch=input("Enter your choice : ")
                 if ch == '1':
-                    # print(line)
                     fin=open("accounts.txt",'r')
                     data=fin.read()
     
@@ -83,19 +74,11 @@ def transaction():
                     new_file=open("A"+str(accNo)+".txt","a")
                     new_file.write(bal[3].rstrip("\n")+":"+"C"+":"+str(amount)+":"+str(s[1])+":"+"\n")
                     new_file.close()
-        
-                    # new_file_content += new_line +"\n"
                     print(s[1])
                     print("Make deposit")
-                    # f.close()
-                    # writing_file = open("accounts.txt", "w")
-                    # writing_file.write(new_file_content)
-                    # writing_file.close()
                 elif ch =='2':
                     fin=open("accounts.txt",'r')
                     data=fin.read()
-    
-
 
                     amount=int(input("Enter the amount :"))
                     bb=s[1]
@@ -120,7 +103,6 @@ def transaction():
                     new_file.write(bal[3].rstrip("\n")+":"+"D"+":"+str(amount)+":"+str(s[1])+":"+"\n")
                     new_file.close()
         
-                    # new_file_content += new_line +"\n"
                     print(s[1])
                     print("Make Withdraw")
                 elif ch == '3':
